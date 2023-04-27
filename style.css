@@ -1,0 +1,155 @@
+/*COLORS  */
+:root {
+  --main-color: #ffde85 ;
+  --secondary-color: #03446D;
+  --accent-color: white;
+  --board:pink;
+  --remaining:black;
+}
+
+/*Sets overall page margin and padding to 0  */
+*{
+  margin:0%;
+  padding:0%;
+}
+
+/* Fits the page */
+html,
+body {
+  height: 100vh;
+  width:100vw ;
+}
+
+/* Main color for body */
+body{
+  background-color:var(--main-color);
+}
+
+/* Homepage */
+h4{
+  text-align:center;
+  background-color:var(--secondary-color);
+}
+
+/* text for a tag for homepage  */
+#homepage{
+  color:var(--accent-color);
+}
+
+/*All a tags  */
+a{
+  color:var(--remaining);
+}
+
+/* Css for the button to return to welcome page */
+#home{
+  display:flex;
+  justify-content: center;
+  position:relative;
+  right:2.5%;
+  color:var(--accent-color);
+}
+
+/* Main div, centers everything and neatly organizes */
+#main{
+  margin-top:100px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  flex-direction:column;
+}
+
+/* Styles titles */
+h1{
+  white-space: nowrap;
+  padding: 50px 50% 0px 50%;
+  background-color:var(--secondary-color);
+  color:var(--accent-color);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+  font-size:200%; 
+}
+
+/*Styles the gameboard  */
+#gameboard{
+  display:flex;
+  height:300px;
+  width:300px;
+  border:solid 2px var(--remaining);
+  justify-content: center;
+}
+
+/*Styles individual divs in gameboard  */
+.spaces{
+  height:100px;
+  width:100px;
+  background-color:var(--board);
+  border:solid 2px var(--remaining)
+}
+
+/*Makes sure all X and O pictures are same size  */
+img{
+  height:100px;
+  width:100px;
+}
+
+/*Styles player turns  */
+h3{
+  text-decoration:underline;
+  font-size:x-large;
+}
+
+/*Styles scores to prevent crowding  */
+h2{
+  margin: 30px;
+}
+
+/* Seperates the scores, one on each side  */
+#scores1{
+  display:flex;
+  align-self:flex-start;
+  float:left;
+}
+
+#scores2{
+  display:flex;
+  float:right;
+}
+
+/* Puts the reset Score and reset Board button next to each other */
+.buttons{
+  display:flex;
+  flex-direction:row;
+}
+
+/* General button spacing  */
+button{
+  margin: 10px 15px 10px 15px;
+}
+
+
+/*MAIN PAGE  */
+/*Adds spacing  */
+br{
+  margin-bottom:50px;
+}
+
+/*Button game mode  */
+#mode{
+  display:flex;
+  justify-content: center;
+}
+
+/*Styles the text and gives context to #mode  */
+#gamemode{
+  display:flex;
+  justify-content: center;
+  margin:0;
+}
+
+/* Makes the font larger for the "How to play" section */
+#instruction{
+  font-size:larger;
+}
