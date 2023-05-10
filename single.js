@@ -159,7 +159,6 @@ function start() {
 
 // Set up
 let boxes = Array.from(document.querySelectorAll("[id^='box']"))
-console.log(boxes)
 let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let score1 = getScore_player['scores_player']
 let score2 = getScore_bot['scores1_bot']
