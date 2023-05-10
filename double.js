@@ -63,15 +63,24 @@ function start() {
     window.location.reload()
   })
 
+
+  // BACKUP
+//   boxes.forEach(box => {
+//     box.addEventListener("click", () => {
+//       add(box.id.slice(-1))
+//     }, { once: true })
+//   })
+// }
+
+
   // AddEventListener and run function for cell clicked- run only once
-  boxes.forEach(box => {
-    box.addEventListener("click", () => {
-      add(box.id.slice(-1))
-    }, { once: true })
-  })
-
-
+  for (let i=1;i<=boxes.length;i++){
+    document.getElementById("box" + i).addEventListener("click",()=>{
+      add(i)
+    },{once:true})
+  }
 }
+
 
 // // Add X or O to the selected cell
 function add(number) {
@@ -148,7 +157,6 @@ function check() {
 let boxes = Array.from(document.querySelectorAll("[id^='box']"))
 let score1 = getScore1["scores1_player"]
 let score2 = getScore2["scores2_player"]
-console.log(score2)
 let count = 0
 let turn = 0
 let finish = false

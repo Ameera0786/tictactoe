@@ -7,13 +7,12 @@ const db = 'scores_data'
 
 let getScore_player = await getScore_single()
 let getScore_bot = await getScores_bot()
-
 // FOR THE SINGLE GAME
 async function getScore_single() {
   const { data, error } = await supabase
     .from(db)
     .select('id,scores_player')
-    .limit(1)
+    .limit()
     .single()
 
   return data
@@ -45,30 +44,6 @@ async function updateScore_bot() {
     .from(db)
     .update({ scores1_bot: score2 })
     .eq('id', getScore_bot['id'])
-}
-
-function start() {
-  // Event listeners for the resetters
-  button_score.addEventListener("click", async (event) => {
-    score1 = 0
-    score2 = 0
-    await updateScore_single(score1)
-    await updateScore_bot(score2)
-    await getScore_single()
-    await getScores_bot()
-    window.location.reload()
-  })
-  button_board.addEventListener("click", () => {
-    window.location.reload()
-  })
-
-
-  // AddEventListener and run function for cell clicked- run only once
-  boxes.forEach(box => {
-    box.addEventListener("click", () => {
-      add(box.id.slice(-1))
-    }, { once: true })
-  })
 }
 
 // // Add X or O to the selected cell 
@@ -148,8 +123,43 @@ function check() {
   }
 }
 
+function start() {
+  // Event listeners for the resetters
+  button_score.addEventListener("click", async (event) => {
+    score1 = 0
+    score2 = 0
+    await updateScore_single(score1)
+    await updateScore_bot(score2)
+    await getScore_single()
+    await getScores_bot()
+    window.location.reload()
+  })
+  button_board.addEventListener("click", () => {
+    window.location.reload()
+  })
+
+
+  // BACKUP
+  //   boxes.forEach(box => {
+  //     box.addEventListener("click", () => {
+  //       add(box.id.slice(-1))
+  //     }, { once: true })
+  //   })
+  // }
+
+
+  // AddEventListener and run function for cell clicked- run only once
+
+  for (let i = 1; i <= boxes.length; i++) {
+    document.getElementById("box" + i).addEventListener("click", () => {
+      add(i)
+    }, { once: true })
+  }
+}
+
 // Set up
 let boxes = Array.from(document.querySelectorAll("[id^='box']"))
+console.log(boxes)
 let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 let score1 = getScore_player['scores_player']
 let score2 = getScore_bot['scores1_bot']
