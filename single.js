@@ -5,8 +5,7 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 const db = 'scores_data'
 
-let getScore_player = await getScore_single()
-let getScore_bot = await getScores_bot()
+
 // FOR THE SINGLE GAME
 async function getScore_single() {
   const { data, error } = await supabase
@@ -122,8 +121,34 @@ function check() {
     player.innerHTML = "Tie"
   }
 }
+let count = 0
+let finish = false
+let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let boxes = Array.from(document.querySelectorAll("[id^='box']"))
+let score2 = 0
+let score1 = 0
+let getScore_player
+let getScore_bot
+const player = document.querySelector("#player_turn")
+const win1 = document.querySelector("#scores1")
+const win2 = document.querySelector("#scores2")
+const button_score = document.querySelector("#reset_score")
+const button_board = document.querySelector("#reset_board")
+const circle = document.createElement("img")
+const cross = document.createElement("img")
+async function start() {
+  getScore_player = await getScore_single()
+  getScore_bot = await getScores_bot()
+  //  Set up
+  score1 = getScore_player['scores_player']
+  score2 = getScore_bot['scores1_bot']
 
-function start() {
+
+  cross.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
+  circle.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/768px-Red_circle.svg.png"
+  player.innerHTML = "Player 1's turn: Crosses go"
+  win1.innerHTML = "Player 1 Wins: " + score1
+  win2.innerHTML = "Bot Wins: " + score2
   // Event listeners for the resetters
   button_score.addEventListener("click", async (event) => {
     score1 = 0
@@ -157,25 +182,7 @@ function start() {
   }
 }
 
-// Set up
-let boxes = Array.from(document.querySelectorAll("[id^='box']"))
-let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-let score1 = getScore_player['scores_player']
-let score2 = getScore_bot['scores1_bot']
-let count = 0
-let finish = false
-const player = document.querySelector("#player_turn")
-const win1 = document.querySelector("#scores1")
-const win2 = document.querySelector("#scores2")
-const button_score = document.querySelector("#reset_score")
-const button_board = document.querySelector("#reset_board")
-const circle = document.createElement("img")
-const cross = document.createElement("img")
-cross.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
-circle.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/768px-Red_circle.svg.png"
-player.innerHTML = "Player 1's turn: Crosses go"
-win1.innerHTML = "Player 1 Wins: " + score1
-win2.innerHTML = "Bot Wins: " + score2
+
 
 start()
 
