@@ -121,21 +121,7 @@ function check() {
     player.innerHTML = "Tie"
   }
 }
-let count = 0
-let finish = false
-let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-let boxes = Array.from(document.querySelectorAll("[id^='box']"))
-let score2 = 0
-let score1 = 0
-let getScore_player
-let getScore_bot
-const player = document.querySelector("#player_turn")
-const win1 = document.querySelector("#scores1")
-const win2 = document.querySelector("#scores2")
-const button_score = document.querySelector("#reset_score")
-const button_board = document.querySelector("#reset_board")
-const circle = document.createElement("img")
-const cross = document.createElement("img")
+
 async function start() {
   getScore_player = await getScore_single()
   getScore_bot = await getScores_bot()
@@ -155,8 +141,6 @@ async function start() {
     score2 = 0
     await updateScore_single(score1)
     await updateScore_bot(score2)
-    await getScore_single()
-    await getScores_bot()
     window.location.reload()
   })
   button_board.addEventListener("click", () => {
@@ -182,7 +166,21 @@ async function start() {
   }
 }
 
-
+let count = 0
+let finish = false
+let random = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+let boxes = Array.from(document.querySelectorAll("[id^='box']"))
+let score2 = 0
+let score1 = 0
+let getScore_player
+let getScore_bot
+const player = document.querySelector("#player_turn")
+const win1 = document.querySelector("#scores1")
+const win2 = document.querySelector("#scores2")
+const button_score = document.querySelector("#reset_score")
+const button_board = document.querySelector("#reset_board")
+const circle = document.createElement("img")
+const cross = document.createElement("img")
 
 start()
 

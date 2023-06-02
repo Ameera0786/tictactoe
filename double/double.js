@@ -46,7 +46,7 @@ async function updateScore_double_player2() {
 }
 
 // Start game
-function start() {
+async function start() {
   // Resets scores and board
   button_score.addEventListener("click", async (event) => {
     score1 = 0
