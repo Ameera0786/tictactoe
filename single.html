@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tic-Tac-Toe</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!--Title -->
+    <h1>Tic-Tac-Toe 1 Player</h1>
+
+    <!--Changes page back to index.html -->
+    <div id="home">
+        <button><a href="index.html">Home</a></button>
+    </div>
+
+    <!--Scores -->
+    <h2 id="scores1">Player 1 Wins: 0 </h2>
+    <h2 id="scores2"> Bot Wins: 0</h2>
+
+
+
+    <!-- Main div, holds everything in place, organized -->
+    <div id="main">
+
+        <h3 id="player_turn"></h3>
+
+        <div id="gameboard">
+            <div>
+                <div id="box1" class="spaces"></div>
+                <div id="box2" class="spaces"></div>
+                <div id="box3" class="spaces"></div>
+            </div>
+
+            <div>
+                <div id="box4" class="spaces"></div>
+                <div id="box5" class="spaces"></div>
+                <div id="box6" class="spaces"></div>
+            </div>
+
+            <div>
+                <div id="box7" class="spaces"></div>
+                <div id="box8" class="spaces"></div>
+                <div id="box9" class="spaces"></div>
+            </div>
+
+        </div>
+        <br>
+
+        <!-- Reset buttons, board and score -->
+        <div class="buttons">
+            <button id="reset_score">Reset Scores</button>
+            <button id="reset_board">Reset Board</button>
+        </div>
+
+
+    </div>
+
+
+
+
+    <script type="module" src="single.js"></script>
+
+</body>
+
+</html>
