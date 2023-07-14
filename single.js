@@ -65,7 +65,6 @@ function add(number) {
         let found = random.indexOf(parseInt(number))
         let new_random = random.splice(found, 1)
         count++
-        player.innerHTML = "Bot's turn: Circles go"
         check()
         // Gets out of function- in the middle of the code so that it can break when cross wins too
         if (finish) {
@@ -85,7 +84,7 @@ function add(number) {
 
         // Prevents O and X from being on same div by removing it from bot options
         new_random = random.splice(found, 1)
-        player.innerHTML = "Player 1's turn: Crosses go"
+        player.innerHTML = "Good luck!"
         count++
         check()
     }
@@ -132,7 +131,7 @@ async function start() {
 
     cross.src = "https://www.freeiconspng.com/thumbs/x-png/x-png-15.png"
     circle.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Red_circle.svg/768px-Red_circle.svg.png"
-    player.innerHTML = "Player 1's turn: Crosses go"
+    player.innerHTML = "Good luck!"
     win1.innerHTML = "Player 1 Wins: " + score1
     win2.innerHTML = "Bot Wins: " + score2
     // Event listeners for the resetters
